@@ -8,3 +8,9 @@ services:
      - ./:/app
     ports:
       - "3000:3000"
+    links:
+      - db
+  db:
+    image: mysql
+    env_file:
+      - ./mysql.env

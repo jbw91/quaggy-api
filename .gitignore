@@ -387,5 +387,6 @@ Temporary Items
 
 =======
 # Local
-dokcer-compose.yml
 .env
+mysql.env
+ormconfig.json
