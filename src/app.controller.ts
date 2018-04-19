@@ -6,4 +6,9 @@ export class AppController {
   root(): any {
     return {message: 'Hello World'};
   }
+
+  @Get('test')
+  test(): string{
+    return 'this is a test';
+  }
 }
