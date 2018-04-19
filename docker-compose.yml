@@ -14,3 +14,10 @@ services:
     image: mysql
     env_file:
       - ./mysql.env
+
+  adminer:
+      image: adminer
+      ports:
+        - 80:8080
+      links:
+        - db
