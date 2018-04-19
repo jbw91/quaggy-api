@@ -3,12 +3,14 @@ version: "3.3"
 services:
   api:
     build: .
-    command: npm run start:dev
+    command: dockerize -wait tcp://db:3306 -timeout 3600s npm run start:dev
     volumes:
      - ./src:/app/src
     ports:
       - "3000:3000"
     links:
+      - db
+    depends_on:
       - db
   db:
     image: mysql
