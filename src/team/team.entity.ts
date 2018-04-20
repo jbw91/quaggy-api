@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, OneToOne, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, OneToOne, ManyToOne, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { User } from 'user/user.entity';
 import { Channel } from 'channel/channel.entity';
 
@@ -6,6 +6,8 @@ import { Channel } from 'channel/channel.entity';
 export class Team {
   @PrimaryGeneratedColumn() id: number;
   @Column() name: string;
+  @CreateDateColumn() created: Date;
+  @UpdateDateColumn() updated: Date;
 
   @ManyToOne(type => User)
   owner: User;

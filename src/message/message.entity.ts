@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { User } from 'user/user.entity';
 import { Channel } from 'channel/channel.entity';
 
@@ -6,6 +6,8 @@ import { Channel } from 'channel/channel.entity';
 export class Message {
   @PrimaryGeneratedColumn() id: number;
   @Column() text: string;
+  @CreateDateColumn() created: Date;
+  @UpdateDateColumn() updated: Date;
 
   @ManyToOne(type => User, user => user.messages)
   user: User;
