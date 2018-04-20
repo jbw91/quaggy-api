@@ -5,7 +5,8 @@ import { Channel } from 'channel/channel.entity';
 @Entity()
 export class Team {
   @PrimaryGeneratedColumn() id: number;
-  @Column() name: string;
+  @Column({ unique: true })
+  name: string;
   @CreateDateColumn() created: Date;
   @UpdateDateColumn() updated: Date;
 
